@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aviso de Privacidad — Apnea Timer</title>
+  <title>Aviso de Privacidad / Privacy Policy — Apnea Timer</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -18,6 +18,43 @@
       margin: 0 auto;
     }
 
+    /* ── Language selector ──────────────────────────────── */
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 4px;
+      background: #1A1A1F;
+      border: 1px solid #2A2A2F;
+      border-radius: 8px;
+      padding: 3px;
+      z-index: 100;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: #8E8E93;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .lang-btn.active {
+      background: #4FC3F7;
+      color: #000;
+    }
+
+    .lang-btn:not(.active):hover {
+      color: #F5F5F7;
+    }
+
+    /* ── Page structure ─────────────────────────────────── */
     header {
       border-bottom: 1px solid #2A2A2F;
       padding-bottom: 28px;
@@ -33,20 +70,11 @@
       margin-bottom: 12px;
     }
 
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
 
-    .subtitle {
-      color: #8E8E93;
-      font-size: 14px;
-    }
+    .subtitle { color: #8E8E93; font-size: 14px; }
 
-    section {
-      margin-bottom: 36px;
-    }
+    section { margin-bottom: 36px; }
 
     h2 {
       font-size: 17px;
@@ -55,29 +83,13 @@
       margin-bottom: 12px;
     }
 
-    p, li {
-      color: #8E8E93;
-      font-size: 15px;
-      line-height: 1.75;
-    }
+    p, li { color: #8E8E93; font-size: 15px; line-height: 1.75; }
 
-    ul {
-      padding-left: 20px;
-      margin-top: 8px;
-    }
+    ul { padding-left: 20px; margin-top: 8px; }
+    li { margin-bottom: 6px; }
 
-    li {
-      margin-bottom: 6px;
-    }
-
-    a {
-      color: #4FC3F7;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: #4FC3F7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .contact {
       background-color: #1A1A1F;
@@ -85,10 +97,7 @@
       padding: 20px 24px;
       margin-top: 40px;
     }
-
-    .contact p {
-      margin-bottom: 4px;
-    }
+    .contact p { margin-bottom: 4px; }
 
     footer {
       margin-top: 60px;
@@ -97,96 +106,201 @@
       color: #8E8E93;
       font-size: 13px;
     }
+
+    /* ── i18n visibility ────────────────────────────────── */
+    [data-lang]      { display: none; }
+    span[data-lang]  { display: none; }
+
+    body.lang-es [data-lang="es"]      { display: revert; }
+    body.lang-en [data-lang="en"]      { display: revert; }
+    body.lang-es span[data-lang="es"]  { display: inline; }
+    body.lang-en span[data-lang="en"]  { display: inline; }
   </style>
 </head>
-<body>
+<body class="lang-es">
+
+  <div class="lang-switcher" role="group" aria-label="Language selector">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')" aria-pressed="true">ES</button>
+    <button class="lang-btn"        id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+  </div>
 
   <header>
     <p class="app-name">Apnea Timer</p>
-    <h1>Aviso de Privacidad</h1>
-    <p class="subtitle">Última actualización: mayo 2026</p>
+    <h1>
+      <span data-lang="es">Aviso de Privacidad</span>
+      <span data-lang="en">Privacy Policy</span>
+    </h1>
+    <p class="subtitle">
+      <span data-lang="es">Última actualización: mayo 2026</span>
+      <span data-lang="en">Last updated: May 2026</span>
+    </p>
   </header>
 
   <section>
-    <h2>Responsable del tratamiento de datos</h2>
-    <p>Los datos personales que proporcionas al usar Apnea Timer son tratados por <strong style="color:#F5F5F7;">RS Developer</strong>. Para consultas relacionadas con tus datos escribe a: <a href="mailto:apneatimer@gmail.com">apneatimer@gmail.com</a></p>
+    <h2>
+      <span data-lang="es">Responsable del tratamiento de datos</span>
+      <span data-lang="en">Data Controller</span>
+    </h2>
+    <p data-lang="es">Los datos personales que proporcionas al usar Apnea Timer son tratados por <strong style="color:#F5F5F7;">RS Developer</strong>. Para consultas relacionadas con tus datos escribe a: <a href="mailto:apneatimer@gmail.com">apneatimer@gmail.com</a></p>
+    <p data-lang="en">The personal data you provide when using Apnea Timer is processed by <strong style="color:#F5F5F7;">RS Developer</strong>. For inquiries related to your data, contact us at: <a href="mailto:apneatimer@gmail.com">apneatimer@gmail.com</a></p>
   </section>
 
   <section>
-    <h2>Datos que recopilamos</h2>
-    <ul>
+    <h2>
+      <span data-lang="es">Datos que recopilamos</span>
+      <span data-lang="en">Data We Collect</span>
+    </h2>
+    <ul data-lang="es">
       <li>Nombre y correo electrónico asociados a tu cuenta de Google</li>
       <li>Historial de sesiones de entrenamiento (fechas, tiempos, configuraciones usadas)</li>
       <li>Preferencia de idioma seleccionada en la app</li>
       <li>Estado de suscripción y períodos de prueba activos</li>
       <li>Registro interno de interacciones con la app (por ejemplo, si ya se solicitó una reseña)</li>
     </ul>
+    <ul data-lang="en">
+      <li>Name and email address associated with your Google account</li>
+      <li>Training session history (dates, times, configurations used)</li>
+      <li>Language preference selected in the app</li>
+      <li>Subscription status and active trial periods</li>
+      <li>Internal record of app interactions (for example, whether a review has already been requested)</li>
+    </ul>
   </section>
 
   <section>
-    <h2>Para qué usamos tus datos</h2>
-    <ul>
+    <h2>
+      <span data-lang="es">Para qué usamos tus datos</span>
+      <span data-lang="en">How We Use Your Data</span>
+    </h2>
+    <ul data-lang="es">
       <li>Para identificarte como usuario y proteger tu cuenta</li>
       <li>Para guardar y sincronizar tu historial de entrenamiento entre dispositivos</li>
       <li>Para mantener tu preferencia de idioma activa en todos tus dispositivos</li>
       <li>Para verificar y gestionar el estado de tu suscripción</li>
       <li>Para mejorar el funcionamiento de la app</li>
     </ul>
-    <p style="margin-top: 12px;">No vendemos, rentamos ni compartimos tus datos personales con terceros con fines comerciales.</p>
+    <ul data-lang="en">
+      <li>To identify you as a user and protect your account</li>
+      <li>To save and sync your training history across devices</li>
+      <li>To keep your language preference active across all your devices</li>
+      <li>To verify and manage your subscription status</li>
+      <li>To improve app performance</li>
+    </ul>
+    <p data-lang="es" style="margin-top:12px;">No vendemos, rentamos ni compartimos tus datos personales con terceros con fines comerciales.</p>
+    <p data-lang="en" style="margin-top:12px;">We do not sell, rent, or share your personal data with third parties for commercial purposes.</p>
   </section>
 
   <section>
-    <h2>Terceros que intervienen</h2>
+    <h2>
+      <span data-lang="es">Terceros que intervienen</span>
+      <span data-lang="en">Third-Party Services</span>
+    </h2>
     <p><strong style="color:#F5F5F7;">Google:</strong></p>
     <ul>
-      <li><strong style="color:#F5F5F7;">Google Sign-In:</strong> autenticación de usuarios</li>
-      <li><strong style="color:#F5F5F7;">Firebase Authentication:</strong> gestión segura de sesiones</li>
-      <li><strong style="color:#F5F5F7;">Cloud Firestore:</strong> almacenamiento de historial y configuraciones</li>
+      <li><strong style="color:#F5F5F7;">Google Sign-In:</strong> <span data-lang="es">autenticación de usuarios</span><span data-lang="en">user authentication</span></li>
+      <li><strong style="color:#F5F5F7;">Firebase Authentication:</strong> <span data-lang="es">gestión segura de sesiones</span><span data-lang="en">secure session management</span></li>
+      <li><strong style="color:#F5F5F7;">Cloud Firestore:</strong> <span data-lang="es">almacenamiento de historial y configuraciones</span><span data-lang="en">storage of history and configurations</span></li>
     </ul>
-    <p style="margin-top: 12px;">Política de privacidad de Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+    <p style="margin-top:12px;">
+      <span data-lang="es">Política de privacidad de Google:</span>
+      <span data-lang="en">Google Privacy Policy:</span>
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener"> policies.google.com/privacy</a>
+    </p>
   </section>
 
   <section>
     <h2>RevenueCat</h2>
-    <p>Utilizamos RevenueCat para la gestión y validación de suscripciones. RevenueCat procesa el identificador de usuario y el historial de compras para verificar el estado de tu suscripción activa.</p>
-    <p style="margin-top: 8px;">Política de privacidad de RevenueCat: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
+    <p data-lang="es">Utilizamos RevenueCat para la gestión y validación de suscripciones. RevenueCat procesa el identificador de usuario y el historial de compras para verificar el estado de tu suscripción activa.</p>
+    <p data-lang="en">We use RevenueCat for subscription management and validation. RevenueCat processes your user identifier and purchase history to verify your active subscription status.</p>
+    <p style="margin-top:8px;">
+      <span data-lang="es">Política de privacidad de RevenueCat:</span>
+      <span data-lang="en">RevenueCat Privacy Policy:</span>
+      <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener"> revenuecat.com/privacy</a>
+    </p>
   </section>
 
   <section>
-    <h2>Tus derechos (Derechos ARCO)</h2>
-    <p>Tienes derecho a Acceder, Rectificar, Cancelar u Oponerte al uso de tus datos. Para ejercerlos escribe a: <a href="mailto:apneatimer@gmail.com">apneatimer@gmail.com</a></p>
-    <p style="margin-top: 8px;">También puedes eliminar tu cuenta y todos tus datos desde: <strong style="color:#F5F5F7;">Configuración → Eliminar cuenta</strong>.</p>
+    <h2>
+      <span data-lang="es">Tus derechos (Derechos ARCO)</span>
+      <span data-lang="en">Your Rights</span>
+    </h2>
+    <p data-lang="es">Tienes derecho a Acceder, Rectificar, Cancelar u Oponerte al uso de tus datos. Para ejercerlos escribe a: <a href="mailto:apneatimer@gmail.com">apneatimer@gmail.com</a></p>
+    <p data-lang="en">You have the right to access, rectify, cancel, or object to the use of your data. To exercise these rights, contact us at: <a href="mailto:apneatimer@gmail.com">apneatimer@gmail.com</a></p>
+    <p data-lang="es" style="margin-top:8px;">También puedes eliminar tu cuenta y todos tus datos desde: <strong style="color:#F5F5F7;">Configuración → Eliminar cuenta</strong>.</p>
+    <p data-lang="en" style="margin-top:8px;">You can also delete your account and all associated data from: <strong style="color:#F5F5F7;">Settings → Delete account</strong>.</p>
   </section>
 
   <section>
-    <h2>Retención de datos</h2>
-    <p>Conservamos tus datos mientras tu cuenta esté activa. Al eliminar tu cuenta, todos tus datos serán eliminados permanentemente en un plazo máximo de 30 días.</p>
+    <h2>
+      <span data-lang="es">Retención de datos</span>
+      <span data-lang="en">Data Retention</span>
+    </h2>
+    <p data-lang="es">Conservamos tus datos mientras tu cuenta esté activa. Al eliminar tu cuenta, todos tus datos serán eliminados permanentemente en un plazo máximo de 30 días.</p>
+    <p data-lang="en">We retain your data for as long as your account is active. Upon account deletion, all your data will be permanently removed within a maximum of 30 days.</p>
   </section>
 
   <section>
-    <h2>Seguridad</h2>
-    <p>Tus datos se almacenan en los servidores de Google Firebase, que cuenta con certificaciones de seguridad internacionales. En caso de una brecha de seguridad que afecte tus datos, serás notificado conforme a la legislación aplicable.</p>
+    <h2>
+      <span data-lang="es">Seguridad</span>
+      <span data-lang="en">Security</span>
+    </h2>
+    <p data-lang="es">Tus datos se almacenan en los servidores de Google Firebase, que cuenta con certificaciones de seguridad internacionales. En caso de una brecha de seguridad que afecte tus datos, serás notificado conforme a la legislación aplicable.</p>
+    <p data-lang="en">Your data is stored on Google Firebase servers, which hold international security certifications. In the event of a security breach affecting your data, you will be notified in accordance with applicable law.</p>
   </section>
 
   <section>
-    <h2>Usuarios menores de edad</h2>
-    <p>Esta app no está dirigida a menores de 18 años. No recopilamos conscientemente datos de menores. Si identificamos que un usuario es menor de edad, su cuenta será eliminada.</p>
+    <h2>
+      <span data-lang="es">Usuarios menores de edad</span>
+      <span data-lang="en">Minors</span>
+    </h2>
+    <p data-lang="es">Esta app no está dirigida a menores de 18 años. No recopilamos conscientemente datos de menores. Si identificamos que un usuario es menor de edad, su cuenta será eliminada.</p>
+    <p data-lang="en">This app is not intended for users under 18 years of age. We do not knowingly collect data from minors. If we identify that a user is a minor, their account will be deleted.</p>
   </section>
 
   <section>
-    <h2>Cambios a este aviso</h2>
-    <p>Cualquier modificación será notificada dentro de la app.</p>
+    <h2>
+      <span data-lang="es">Cambios a este aviso</span>
+      <span data-lang="en">Changes to This Policy</span>
+    </h2>
+    <p data-lang="es">Cualquier modificación será notificada dentro de la app.</p>
+    <p data-lang="en">Any modifications will be notified within the app.</p>
   </section>
 
   <div class="contact">
-    <p><strong style="color:#F5F5F7;">Contacto</strong></p>
+    <p><strong style="color:#F5F5F7;">
+      <span data-lang="es">Contacto</span>
+      <span data-lang="en">Contact</span>
+    </strong></p>
     <p>RS Developer</p>
     <p><a href="mailto:apneatimer@gmail.com">apneatimer@gmail.com</a></p>
   </div>
 
   <footer>
-    <p>&copy; 2026 Apnea Timer. Todos los derechos reservados.</p>
+    <p>&copy; 2026 Apnea Timer.
+      <span data-lang="es">Todos los derechos reservados.</span>
+      <span data-lang="en">All rights reserved.</span>
+    </p>
   </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      document.documentElement.lang = lang;
+      var btnEs = document.getElementById('btn-es');
+      var btnEn = document.getElementById('btn-en');
+      btnEs.classList.toggle('active', lang === 'es');
+      btnEn.classList.toggle('active', lang === 'en');
+      btnEs.setAttribute('aria-pressed', String(lang === 'es'));
+      btnEn.setAttribute('aria-pressed', String(lang === 'en'));
+      try { localStorage.setItem('apnea_timer_lang', lang); } catch (e) {}
+    }
+
+    // Restore saved preference on load; default is 'es'
+    (function () {
+      var saved;
+      try { saved = localStorage.getItem('apnea_timer_lang'); } catch (e) {}
+      if (saved === 'en') { setLang('en'); }
+    }());
+  </script>
 
 </body>
 </html>
